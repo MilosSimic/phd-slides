@@ -1,0 +1,314 @@
+%%%ENV MACROS
+
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}{Lemma}[section]
+%\newtheorem{example}{Example}[section]
+%\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{\bf Proposition}[section]
+%\newtheorem{corollary}{Corollary}[section] 
+%\newenvironment{proof}{{\em Proof.}}{}
+
+
+
+%%%% MACROS 
+\newcommand{\dlsqb}{[\![}
+\newcommand{\drsqb}{]\!]}
+
+\renewcommand{\l}{l}
+\newcommand{\T}{{\mathsf T}}
+\newcommand{\R}{R}
+\newcommand{\ST}{{\mathsf S}}
+\newcommand{\I}{\bigwedge\!\!\!\!\bigwedge}
+
+\newcommand{\rulename}[1]{\text{\small[\textsc{#1}]}}
+\newcommand{\pinactive}{\nil}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TO ASSIST EDITING %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\new}[1]{{\color{blue} #1}}
+\newcommand{\del}[1]{{\color{red} #1}}
+
+\newcommand{\rep}[2]{\del{#1} \new{#2}}
+
+\newcommand{\comment}[1]{{\color{magenta} \emph{[#1]}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%     NAMES      %%%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\s}{s}
+\newcommand{\pp}{{\sf p}}
+\newcommand{\q}{\pq}
+\newcommand{\pq}{{\sf q}}
+\newcommand{\pr}{{\sf r}}
+\newcommand{\pt}{{\sf t}}
+\newcommand{\pid}{{\sf i}}
+\newcommand{\pidplus}{{\sf i+1}}
+\newcommand{\pidminus}{{\sf i-1}}
+\newcommand{\pidn}{{\sf n}}
+\newcommand{\pidnminus}{{\sf n-1}}
+\newcommand{\pidzero}{{\sf 0}}
+\newcommand{\e}{\kf{e}}
+\newcommand{\x}{x}
+\newcommand{\y}{y}
+\newcommand{\h}{h}
+\newcommand{\val}{\kf{v}}
+\newcommand{\valn}{\kf{n}}
+\newcommand{\valr}{\kf{i}}
+\newcommand{\vali}{\valr}
+\newcommand{\valb}{\kf{b}}
+%\newcommand{\sep}{\ensuremath{~~\mathbf{|\!\!|}~~ }}
+\newcommand{\kf}[1]{\ensuremath{\mathsf{#1}}}
+\newcommand{\pc}{\ensuremath{~|~}}
+
+
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\newcommand{\G}{\ensuremath{{\sf G}}}
+%%%%%%%%%%%%%
+%%%%%%%%%%
+
+
+
+\newcommand{\Gvti}[5]{\ensuremath{#1\to#2:\{#3_i({#4}_i). #5_i \}_{i \in I}}}
+\newcommand{\Gvtj}[5]{\ensuremath{#1\to#2:\{#3'_j({#4}'_j). #5 \}_{j \in J}}}
+\newcommand{\Gvtk}[5]{\ensuremath{#1\to#2:\{#3_k({#4}_k). #5_k \}_{k \in K}}}
+\newcommand{\Gvtij}[5]{\ensuremath{#1\to#2:\{#3_j({#4}_j). #5_j \}_{j \in J}}}
+\newcommand{\ty}{\textbf{t}}
+
+\newcommand{\Sy}{\ensuremath{\mathcal S}}
+\newcommand{\N}{\ensuremath{\mathcal M}}
+\newcommand{\M}{\ensuremath{\mathcal M}}
+
+\newcommand{\pa}[2]{#1 \triangleleft  #2}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\eval}[2]{#1 \downarrow #2}
+\newcommand{\true}{\kf{true}}
+\newcommand{\false}{\kf{false}}
+
+%\newcommand{\myrule}[3]{\begin{prooftree} #1 \justifies   #2   \using{\rln{#3}} \end{prooftree}}
+\newcommand{\myrule}[3]{\inferrule[\rln{#3}]{#1}{#2}}
+\newcommand{\rln}[1]{\textsc{#1}}
+\newcommand{\der}[3]{ #1 \vdash   #2  \rhd#3}
+\newcommand{\sder}[4]{ #1 \vdash_{#2}   #3  \rhd#4}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\pro}[3]{ #1 \upharpoonright_#2 #3}
+\newcommand{\CP}[1]{ {\mathcal P}(#1)}
+\newcommand{\CPR}[2]{ {\mathcal P}(#2,#1)}
+\newcommand{\CG}[2]{ {\mathcal G}(#1,#2)}
+\newcommand{\CGZ}[3]{ {\mathcal G}_0(#1,#2,#3)}
+\newcommand{\res}{\setminus}
+\newcommand{\rem}{\bbslash}
+\newcommand{\CC}[1]{ {\mathcal C}[#1]}
+
+\newcommand{\inout}[1]{{\mathtt {actions}}(#1)}
+%%%%%%%%%%%%%%%%%%%%%%
+%%% FUNCTIONS      %%%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\participant}[1]{\mathtt{pt}\{#1\}}
+\newcommand{\pn}[1]{\mathtt{pn}(#1)}
+\newcommand{\pnin}[1]{\mathtt{pn}_?(#1)}
+\newcommand{\pnout}[1]{\mathtt{pn}_!(#1)}
+\newcommand{\proj}[2]{ #1 \upharpoonright #2}
+\newcommand{\sub}[2]{\set{#1/#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%% PROCESSES      %%%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\MP}{M}
+%\newcommand{\new}[1]{(\nu#1)}
+\newcommand{\procin}[4]{#1   [#2] ? #3.#4}
+\newcommand{\procino}[2]{#1   [#2] ?}
+\newcommand{\procouto}[2]{#1   [#2] !}
+\newcommand{\procout}[5]{#1  [#2]! #3\langle#4\rangle.#5}
+\newcommand{\procdag}[3]{#1 \dagger  #2 .#3}
+\newcommand{\procddag}[3]{#1 \dagger #2. #3}
+\newcommand{\error}{\kf{error}}
+\newcommand{\PP}{\ensuremath{P}}
+\newcommand{\Q}{\ensuremath{Q}}
+\newcommand{\cond}[3]{\kf{if}~ #1 ~\kf{then} ~#2 ~\kf{else}~#3}
+%\newcommand{\cond}[3]{#2\oplus #3}
+\newcommand{\inact}{\ensuremath{\mathbf{0}}}
+\newcommand{\internal}{\oplus}
+\newcommand{\external}{+}
+\newcommand{\co}[1]{\mathtt{coherent}\{#1\}}
+\newcommand{\emptyqueue}{\epsilon}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ENDPOINT and other TYPES %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\tend}{\mathtt{end}}
+\newcommand{\tbool}{\mathtt{bool}}
+\newcommand{\tstring}{\mathtt{string}}
+\newcommand{\tnat}{\mathtt{nat}}
+\newcommand{\treal}{\mathtt{real}}
+\newcommand{\tint}{\mathtt{int}}
+\newcommand{\tin}[3]{#1{\&}#2(#3)}
+\newcommand{\tout}[3]{#1{\oplus}#2(#3)}
+\newcommand{\tdag}[3]{#1\dagger #2(#3)}
+\newcommand{\tddag}[3]{#1\ddagger #2 (#3)}
+\newcommand{\tinternal}{\vee}
+\newcommand{\texternal}{\bigoplus}
+
+\newcommand{\lin}{part}
+\newcommand{\lout}{lab}
+
+\renewcommand{\S}{S}
+\newcommand{\queue}{\mathtt{queue}}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%% CONTEXTS
+%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\hole}{[~]}
+\newcommand{\context}{\mathcal{C}}
+\newcommand{\Econtext}{\mathcal{E}}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%    RELATIONS   %%%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subt}{\leqslant}
+\newcommand{\subs}{\leq\vcentcolon}
+\newcommand{\red}{\longrightarrow}
+\newcommand{\nsubt}{\not\trianglelefteq}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%    FUNCTIONS    %
+%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\fsqrt}[1]{{\tt neg}(#1)}
+\newcommand{\fneg}{\fsqrt}
+\newcommand{\fsucc}[1]{{\tt succ}(#1)}
+\newcommand{\sbj}[1]{{\tt subj}(#1)}
+\newcommand{\fail}[1]{{\tt fail}(#1)}
+\newcommand{\stuck}[1]{{\tt stuck}(#1)}
+\newcommand{\dual}[1]{\overline #1}
+\newcommand{\fpv}{\mathsf{fpv}}
+\newcommand{\dpv}{\mathsf{dpv}}
+\newcommand{\bv}{\mathsf{bv}}
+\newcommand{\fn}{\mathsf{fn}}
+\newcommand{\fc}{\mathsf{fc}}
+\newcommand{\fin}{\mathsf{fc}_{?}}
+\newcommand{\fv}{\mathsf{fv}}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\cinferrule}[3][]{
+	\mprset{fraction={===},
+		fractionaboveskip=0.2ex,
+		fractionbelowskip=0.4ex}
+	\inferrule[#1]{#2}{#3}
+}
+
+\newcommand{\AContext}[1]{\mathcal{A}^{(#1)}}
+\newcommand{\BContext}[1]{\mathcal{B}^{(#1)}}
+\newcommand{\BC}{\mathcal{B}}
+\newcommand{\supBC}[1]{{\tt supc}\left(#1\right)}
+\newcommand{\subBC}[1]{{\tt subc}\left(#1\right)}
+\newcommand{\AContextf}[1]{\AContext [ #1 ]}
+\newcommand{\AContextfp}[1]{\AContext' [ #1 ]}
+\newcommand{\AContextfi}[2]{\AContext_#1 [ #2 ]}
+\newcommand{\AContextfip}[2]{\AContext'_#1 [ #2 ]}
+\newcommand{\Dcomp}{\ensuremath{\ast}}
+\newcommand{\Tcomp}{\ensuremath{.}}
+\newcommand{\D}{\ensuremath{\Delta}}
+\newcommand{\dom}[1]{\ensuremath{dom( #1)}}
+%ASYNCHRONOUS
+\newcommand{\cha}{{\sf c}}
+\newcommand{\scha}[1]{{\sf s}[ #1 ]}
+\newcommand{\schap}[1]{{\sf s}'[ #1 ]}
+\newcommand{\schai}[1]{{\sf s}_i[ #1 ]}
+\newcommand{\schaj}[1]{{\sf s}_j[ #1 ]}
+\newcommand{\schak}[1]{{\sf s}_k[ #1 ]}
+\newcommand{\schakk}[1]{{\sf s}_{k''}[ #1 ]}
+\newcommand{\schako}[1]{{\sf s}_{k_0}[ #1 ]}
+\newcommand{\schaio}[1]{{\sf s}_{i_0}[ #1 ]}
+\newcommand{\schajo}[1]{{\sf s}_{j_0}[ #1 ]}
+\newcommand{\schamo}[1]{{\sf s}_{m_0}[ #1 ]}
+\newcommand{\schao}[1]{{\sf s}_0[ #1 ]}
+\newcommand{\schaL}[1]{{\sf s}_l[ #1 ]}
+\newcommand{\schal}[1]{{\sf s}_1[ #1 ]}
+\newcommand{\schall}[1]{{\sf s}_2[ #1 ]}
+\newcommand{\schalll}[1]{{\sf s}_l[ #1 ]}
+\newcommand{\sbn}{\gamma}
+\newcommand{\EmptyQueue}{\varnothing}
+\newcommand{\Queue}{h}
+\newcommand{\msg}[4]{\langle #1,#2,#3(#4)\rangle}
+\newcommand{\qconc}{\cdot}
+\newcommand{\sh}{{\sf s}}
+\newcommand{\qu}[2]{#1\,\text{\small $\blacktriangleright$}\, #2}
+\newcommand{\sba}{\delta}
+\newcommand{\parop}{\mathbin{|}}
+\newcommand{\Context}{C}
+
+\newcommand{\QueueType}{\tau}
+\newcommand{\MessageType}{\upsilon}
+\newcommand{\EmptyQueueT}{\epsilon}
+%\newcommand{\tmsg}[3]{\langle#1,#2(#3)\rangle}
+\newcommand{\tmsg}[3]{\tout#1#2#3}
+\newcommand{\remainder}[2]{#1 - #2}
+\newcommand{\GT}{\mathcal T}
+
+%%%%%%  COLORS       %
+%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{ceca}{rgb}{1,0.5,0}
+\newcommand{\sj}[1]{{\color{ceca}{#1}}}
+
+
+%%%%%
+%SPACES
+%%%%%
+\newcommand{\myformulaA}[1]{\centerline{$#1$}}
+\newcommand{\myformula}[1]{\\[3pt]\centerline{$#1$}\\[3pt]}
+\newenvironment{mytable}
+{\begin{table}}{\vspace{-20pt}\end{table}}
+\newenvironment{mytableA}
+{\vspace{-7pt}\begin{table}}{\vspace{-7pt}\end{table}}
+%  \newcommand{\myparagraph}[1]{\paragraph{#1}}
+\newcommand{\myparagraph}[1]{\noindent{\bf #1.}}
+
+\newenvironment{mydefinition}
+{\begin{definition}\vspace{-4pt}}{\vspace{-2pt}\end{definition}}
+
+\newenvironment{mytheorem}[1]
+{\begin{theorem}{\bf{(#1)}}\vspace{-2pt}
+	}{\vspace{-3pt}
+\end{theorem}}
+
+\newenvironment{mylemma}[1]
+{\begin{lemma}{\bf{(#1)}}\vspace{-1pt}
+	}{\vspace{-3pt}
+\end{lemma}}
+
+\newenvironment{myitemize}
+{\begin{itemize}\vspace{-5pt}
+		\topsep0pt\parskip0pt\partopsep0pt\itemsep0pt\leftmargin0pt\itemsep2pt\labelwidth0pt\labelsep3pt}
+	{\vspace{-2pt}
+\end{itemize}}
+
+\newenvironment{mylemmaA}
+{\begin{lemma}\vspace{-1pt}
+	}{\vspace{-3pt}
+\end{lemma}}
+\newenvironment{myexample}
+{\begin{example}\vspace{-4pt}}{\vspace{-2pt}\end{example}}
+
+\newenvironment{myexampleA}
+{\begin{example}\vspace{-4pt}}{\vspace{-20pt}\end{example}}
+
+\newenvironment{myexampleB}
+{\begin{example}\vspace{-4pt}}{\vspace{-15pt}\end{example}}
+
+\newenvironment{myequation}
+{\begin{equation}\vspace{-10pt}}{\vspace{-20pt}\end{equation}}
