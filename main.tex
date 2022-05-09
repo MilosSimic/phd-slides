@@ -295,7 +295,7 @@
 			\end{itemize}
 			\item \textbf{Containers} and their possibilities in software systems
 		\end{enumerate}
-	\item They are crucial for understanding the concept of \textbf{distributed clouds --- micro clouds}
+	\item They are crucial for understanding the concept of \textbf{distributed clouds -- $\mu$ clouds}
 	\end{itemize}
 	
 \end{frame}
@@ -314,7 +314,7 @@
 		\begin{enumerate}
 			\item \textbf{Concurrency} -- multiple activities are executed at the same time on multiple nodes
 			\item \textbf{Independent failures} -- nodes fail independently
-			\item \textbf{Lack of a global clock} -- each node has its notion of time, no global clock
+			\item \textbf{Lack of a global clock} -- each node has its notion of time
 		\end{enumerate}
 	\end{itemize}
 	
@@ -345,11 +345,35 @@
 	
 	\begin{itemize}
 		\item Vogels et al. describe cloud computing as an \textbf{aggregation of computing resources as a utility, and software as a service} --- interesting definition
-		\item Clouds provide services, clients use them to avoid huge investments -- creating and maintaining data centers
-		\item Pay for their usage time -- \emph{pay as you go model}
+		\item Clouds provide services, clients use them to avoid \textbf{huge} investments -- creating and maintaining \textbf{big} data centers (\textbf{expensive})
+		\item Clients \textbf{only} pay for their usage time -- \emph{pay as you go model}
 		\item Centralization of resources -- \textbf{economy of scale}, lower the administration costs
 		\item \textbf{BUT} data \textbf{must} to be moved to the cloud -- \textbf{introduces high latency}
 	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Third time’s a Charm --- an engineering point of view}
+	
+	\emph{There is no cloud just someone else's computer}
+	
+	\begin{columns}
+		\begin{column}{0.5\linewidth}
+			\begin{center}
+				\includegraphics[width=1\linewidth]{images/building}
+				\quickCite{Outside Google Data center}
+			\end{center}
+		\end{column}
+		\begin{column}{0.5\linewidth}
+			\begin{center}
+				\includegraphics[width=1\linewidth]{images/clusters}
+				\quickCite{Inside Google Data center}
+			\end{center}
+		\end{column}
+	\end{columns}
+	
+	\emph{And we need to have the way to program these groups of machines}
 	
 \end{frame}
 
@@ -375,7 +399,7 @@
 	\frametitle{Cloud computing problems}
 	
 	\begin{itemize}
-		\item Centralization demands to move all data to the cloud --- big issue
+		\item Centralization \textbf{demands} to move all data to the cloud --- big issue
 		\begin{itemize}
 			\item Boeing 787s per single flight generates \textbf{half a terabyte of data}
 			\item A self-driving car generates \textbf{two petabytes of data per single drive}
@@ -383,7 +407,7 @@
 		\item Bandwidth is not large enough to support such requirements
 		\item Some applications require real-time processing for proper decision-making
 		\item Such applications might face \textbf{serious issues} if a cloud service becomes unavailable
-		\item Some sensitive data cannot be moved out of the state border
+		\item Some sensitive data \textbf{cannot} be moved out of the state border
 		\item When pushed to its limits, centralization brings more harm than good
 	\end{itemize}
 	
@@ -396,7 +420,7 @@
 	\frametitle{Distributed clouds}
 	
 	\begin{itemize}
-		\item The cloud is usually far away from end devices -- data centers are built on specific locations (target as many users nearby as possible)
+		\item The cloud is usually far away from end devices -- \textbf{data centers are built on specific locations} (target as many users nearby as possible)
 		\item Sparse deployment will most likely lead to high latency, and bad quality of experience (QoE)
 		\item Latency-sensitive applications \textbf{especially} will have a hard time
 		\item Relax the cloud, and move some tasks from the cloud -- opening the door for next gen models
@@ -429,14 +453,15 @@
 	\frametitle{Edge computing}
 	
 	\begin{itemize}
-		\item Edge computing introduced \textbf{small-scale servers} -- operate \textbf{between data sources and the cloud}
+		\item A model where computing and storage utilities are \textbf{in proximity} to data sources
+		\item It introduced \textbf{small-scale servers} -- operate \textbf{between data sources and the cloud}
 		\item These small-scale servers
 		\begin{itemize}
 			\item Have much fewer capabilities compared to the cloud servers
 			\item Operate in proximity to data sources
 			\item Maintain good performance to build servers and clusters
 		\end{itemize}
-		\item To avoid latency and huge bandwidth, edge computing nodes can be dispersed in various locations
+		\item To avoid latency and huge bandwidth, these servers can be dispersed in various locations
 		\item Nearby nodes could be \textbf{organized locally} -- \textbf{extending resources beyond the single node or group of nodes}
 	\end{itemize}
 	
@@ -459,9 +484,9 @@
 		\item Nano data centers -- serve single household (using SDN)
 		\item Drop computing -- ad hoc formation
 	\end{itemize}
-	\item Processing:
+	\item Processing (Big Data):
 	\begin{itemize}
-		\item Data locality -- moving computation to the data
+		\item Data locality -- moving computation to the data, instead of vice versa (cloud)
 		\item Lambda architectures
 	\end{itemize}
 	\item Infrastructure definition as code
@@ -475,9 +500,15 @@
 	\begin{itemize}
 		\item The cloud architecture is separated into building blocks making the system easier to understand, maintain and operate -- clusters, regions, availability zones
 		\item Rely on a similar proven strategy -- adapt the existing model for different use-cases
+	\end{itemize}
+
+	\bigskip
+
+	\begin{itemize}
 		\item Let's observe \textbf{micro clouds} as \emph{geo-distributed systems with dispersed users}
 		\item \emph{Geo-distribution} means \textbf{in proximity to some large populations}, where micro clouds serve user requests locally \textbf{first}
-		\item Forming micro clouds (pools of resources) depends on usage and local population needs -- \textbf{as code/software}
+		\item Forming micro clouds (pools of resources) depends on local population \textbf{usage and needs} -- adaptive
+		\item Reduce traditional data centers fixed costs with \textbf{agility} -- dynamically grow and shrink resources as needed
 	\end{itemize}
 	
 \end{frame}
@@ -512,7 +543,10 @@
 	\frametitle{Separation of concerns}
 	
 	\begin{figure}[H]
-		\includegraphics[width=\linewidth]{images/FIG1}
+		\begin{center}
+			\includegraphics[width=\linewidth]{images/FIG1}
+			\quickCite{Edge-centric computing as a service architecture with separation of concerns.}
+		\end{center}
 	\end{figure}
 \end{frame}
 
@@ -522,15 +556,17 @@
 	\begin{columns}
 		\begin{column}{0.5\linewidth}
 			\begin{itemize}
-				\item Ephemeral cloud-like structures serving local requests first, before reaching to the traditional cloud 
-				\item Size and existence are defined by the local population's needs
+				\item \textbf{Ephemeral cloud-like structures} serving local requests first, before reaching to the traditional cloud 
+				\item Size and existence are defined by the \textbf{local population's needs}
 				\item Clients have the \textbf{illusion} to communicate with the clouds
 				\item Designed for \textbf{failure} using automated tools
-				\item Collaborate with traditional clouds -- biologically inspired computing
+				\item \textbf{Collaborate} with traditional clouds -- biologically inspired computing
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\linewidth}
-			\includegraphics[scale=0.7]{images/Figure9}
+			\begin{center}
+				\includegraphics[scale=0.7]{images/Figure9}
+			\end{center}
 		\end{column}
 	\end{columns}
 
@@ -541,7 +577,7 @@
 	\begin{itemize}
 		\item Capabilities of ARM-based devices have good performance for building servers and clusters, considering their performance per Watt relation
 		\item These servers can be spread in base stations, coffee shops, or over geographic regions to avoid latency, and huge bandwidth
-		\item They can serve as firewalls and pre-processing tier for the cloud
+		\item They can serve as firewalls and pre-processing tier for the cloud (smart (big) data)
 		\item Users get a unique ability to dynamically and selectively control the information sent to the cloud
 	\end{itemize}
 \end{frame}
@@ -549,10 +585,10 @@
 \begin{frame}
 	\frametitle{Who can join the system?}
 	
-	To be a part of the system, a node must satisfy four simple rules:
+	To be a part of the system, a node \textbf{must} satisfy four simple rules:
 	\begin{enumerate}
 		\item Run an operating system with a file system
-		\item Be able to run some application isolation tool, for example, a container or unikernel engine
+		\item Be able to run some application isolation tool (e.g. container or unikernel engine)
 		\item Have available resources for utilization
 		\item Have internet connection
 	\end{enumerate}
@@ -560,7 +596,7 @@
 	\bigskip
 	
 	\begin{itemize}
-		\item Simple yet powerful rules are here to help --- increased demand for resources that the currently available infrastructure cannot support
+		\item Simple yet powerful rules are here to help -- increased demand for resources that the currently available infrastructure \textbf{cannot} support
 		\item \textbf{Inclusion of volunteer nodes} into the system can be allowed to depreciate load for an indefinite period
 	\end{itemize}
 	
@@ -570,7 +606,7 @@
 	\frametitle{But what is a node?}
 	
 	\begin{itemize}
-		\item Nodes can be heterogeneous by their nature
+		\item Nodes can be \textbf{heterogeneous} by their nature
 		\item Formally, every node in the system could be described as a \emph{tuple} 
 		\begin{equation*}
 			s_i = (L, R, A, I)
@@ -578,10 +614,10 @@
 		\begin{itemize}
 			%
 			%
-			\item $L$ is a set of ordered key-value pairs representing node labels or server-specific features (e.g., os:linux, arch:arm, isolation:containers, etc.) 
+			\item $L$ is a set of ordered \emph{key-value} pairs representing node \emph{labels} or \textbf{server-specific features} (e.g., os:linux, arch:arm, isolation:containers, etc.) 
 			%
 			%
-			\item $R$ is representing node resources (total, free, used, etc.)
+			\item $R$ is representing node resources (kind, total, free, used, etc.)
 			%
 			%
 			\item $A$ is representing running applications (labels, resources, configrations, informations, etc.)
@@ -598,28 +634,29 @@
 	\frametitle{Formation of micro clouds and the protocols} 
 	
 	\begin{itemize}
-		\item Nodes are organized into micro clouds dynamically, by abstracting infrastructure to the level of software --- infrastructure as software
-		\item The proposed system relies on three protocols:
+		\item Nodes are organized into micro clouds dynamically, \textbf{by abstracting infrastructure to the level of software} --- infrastructure as software
+		\item The proposed system relies on \textbf{four} protocols:
 		\bigskip 
 		\begin{enumerate}
-			\item health-check protocol informs the system about the state of every node --- background operation
-			\item cluster formation protocol forms new clusters --- mutate operation
-			\item list detail protocol shows the current state of the system to the user --- list operation
+			\item \textbf{healthcheck} protocol informs the system about the state of every node --- background operation
+			\item \textbf{cluster formation} protocol forms new clusters --- mutate operation (atomic, immutable, and idempotent)
+			\item \textbf{Idempotency check} protocol prevent mutate operation \textbf{if} infrastructure already exists
+			\item \textbf{list detail} protocol shows the current state of the system to the user --- list operation
 		\end{enumerate}
 	\end{itemize}
 
 \end{frame}
 
 \begin{frame}
-	\frametitle{Health-check protocol}
+	\frametitle{Healthcheck protocol}
 	
 	\begin{columns}
 		\begin{column}{0.5\linewidth}
 			\begin{itemize}
 				\item The \textbf{order} in which messages arrive is \textbf{not} important
-				\item The important part is that every message eventually comes into the system
+				\item The important part is that every message \textbf{eventually} comes into the system
 				\item All nodes are \textbf{equal}, part of some cluster or not
-				\item Formally adding node to the system if not present:
+				\item Formally adding node to the system \textbf{if not present}:
 				\begin{equation*}
 				S_{\mathit{new}} = S_{\mathit{old}} \cup \bigcup%\limits
 				_{i=1}^{n} \{s_i\}
@@ -637,14 +674,14 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Cluster formation protocol}
+	\frametitle{Cluster formation and Idempotency check protocols}
 	
 	\begin{columns}
 		\begin{column}{0.5\linewidth}
 			\begin{itemize}
-				\item Pick desired nodes -- \textbf{selector} uses two rules:
+				\item Pick desired nodes, rules:
 				\begin{itemize}
-					\item $i_\mathit{th}$ server's labels set and the query selector are same size
+					\item $i_\mathit{th}$ server's labels set $s_i[L]$ and the query selector $Q$ are same size
 					\begin{equation*}
 					\left|s_i[L]\right|=\left|Q\right|
 					\end{equation*}
@@ -654,13 +691,17 @@
 					\text{ such that }  k=k_j \wedge v\leq v_j \Big)
 					\end{align*}
 				\end{itemize}
-				\item Reserve nodes for some time $t_r$
-				\item Nodes start membership protocol
+				\item Check idempotency
+				\item Reserve nodes for some time $T_r$
+				\item Nodes start \textbf{membership protocol}
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\linewidth}
 			\begin{center}
-				\includegraphics[scale=0.6]{images/FIG3}
+				\begin{figure}
+					\includegraphics<1>[scale=0.55]{images/FIG31}
+					\includegraphics<2>[scale=0.55]{images/FIG3}
+				\end{figure}
 			\end{center}
 		\end{column}
 	\end{columns}
@@ -700,16 +741,17 @@
 	\frametitle{How to prove this?}
 	
 	\begin{columns}
-		\begin{column}{0.5\linewidth}
+		\begin{column}{0.6\linewidth}
 			\begin{center}
-				If there is a bug in a distributed algorithm, \\
+				If there is a bug in a \emph{distributed algorithm}, \\
 				no matter how improbable it may seem, \\
-				it's not a question of whether it will appear, \\
-				it's a question of when it will appear.
+				it's not a question of \textbf{whether} it will appear, \\
+				it's a question of \textbf{when} it will appear.
+				\newline
+				\quickCite{Leslie Lamport, Heidelberg Laureate Forum 2021, https://www.youtube.com/watch?v=KVs3YFKqclU}
 			\end{center}
-			\quickCite{Leslie Lamport, Heidelberg Laureate Forum 2021, https://www.youtube.com/watch?v=KVs3YFKqclU}
 		\end{column}
-		\begin{column}{0.5\linewidth}
+		\begin{column}{0.4\linewidth}
 			\begin{center}
 				\includegraphics[scale=0.4]{images/leslie}\\
 				\quickCite{Leslie Lamport, Turing award amongst others}
@@ -763,9 +805,16 @@
 		\begin{column}{0.5\linewidth}
 			We see two possible scenarios for implementation: 
 			\begin{itemize}
-				\item a stand-alone implementation --- using open source tools
-				\item integration within existing tools, as a node organizer and register (e.g. Kubernetes node organizator)
+				\item \textbf{a stand-alone} implementation --- using open source tools
+				\item \textbf{integration} within existing tools, as a node organizer and register (e.g. Kubernetes node organizator)
 			\end{itemize}
+		
+			\smallskip
+		
+			\begin{itemize}
+				\item \textbf{Do not} lock users in specific provider ecosystem
+			\end{itemize}
+		
 		\end{column}
 		\begin{column}{0.5\linewidth}
 			\begin{center}
@@ -781,10 +830,10 @@
 	\frametitle{Remote formation is tricky}
 	
 	\begin{itemize}
-		\item Infrastructure deployment will not happen overnight -- it might take years
-		\item It might not be started at all until the whole process is \emph{trivial} -- \textbf{simplify micro clouds management}
-		\item The naive approach is doing it manually -- super tedious and time-consuming
-		\item \textbf{The infrastructure needs to be constantly deployed and maintained} -- automation
+		\item Infrastructure deployment will \textbf{not happen overnight} -- it might take years
+		\item It might not be started at all until the whole process is \emph{trivial} -- \textbf{key is to simplify remote micro clouds management}
+		\item The naive approach, do it manually -- super tedious and time-consuming
+		\item \textbf{The infrastructure needs to be constantly deployed and maintained} -- automation is the key
 		\item Prevent configuration drift -- the systems become different over time
 	\end{itemize}
 	
@@ -794,8 +843,8 @@
 	\frametitle{Then how?}
 	
 	\begin{itemize}
-		\item It would be beneficial to view the \textbf{infrastructure as software} -- already available tools, principles, and techniques
-		\item Model is \textbf{movable} in between edge and cloud, do we want more cloud-like or edge-like system
+		\item Abstracting infrastructure to the level of software -- \textbf{infrastructure as software} (already available tools, principles, and techniques)
+		\item Micro clouds model is \textbf{movable} in between edge and cloud -- do we want more cloud-like or edge-like system
 		\item Such \textbf{elasticity} requires infrastructure abstraction to the software level -- \textbf{infrastructure programming}
 		\item This allow micro clouds infrastructure to be managed similarly as the software is
 		\item Infrastructure definition is versioned, automated, and applied repeatedly and consistently every time -- \textbf{minimize configuration drift}
@@ -809,8 +858,8 @@
 	\begin{columns}
 		\begin{column}{0.5\linewidth}
 			\begin{itemize}
-				\item Specify desired state using \emph{YAML} or some other format (descriptively)
-				\item Submit \textbf{new state} to the system, and \textbf{let the system deal with the rest}
+				\item Specify \textbf{desired state} using \emph{YAML} or some other format -- descriptively
+				\item Submit \textbf{desired state} to the system, and \textbf{let the system deal with the rest}
 				\item \textbf{Immutable infrastructure deployment} allows for rolling update strategy -- updates large environments, a few nodes at the time
 				\item Rely on containers for everything, even OS (LinuxKit)
 				\item Sorry \textbf{no} DSLs here
@@ -837,13 +886,16 @@
 					\item \textbf{current state} -- actual state
 				\end{enumerate}
 				\item \textbf{Reconciliation loop} ensures that the desired state is maintained
-				\item Every node must provide their current state -- \textbf{health-check} protocol
+				\item Every node \textbf{must} provide current state, for comparison -- \textbf{healthcheck} protocol
 				\item Extension is simple
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\linewidth}
 			\begin{center}
-				\includegraphics[scale=0.6]{images/Figure3}
+				\begin{figure}
+					\includegraphics<1>[scale=0.6]{images/Figure3}
+					\includegraphics<2>[scale=0.6]{images/Figure30}
+				\end{figure}
 			\end{center}
 		\end{column}
 	\end{columns}
@@ -866,6 +918,7 @@
 	\begin{itemize}
 		\item This research goes one step further, allowing the creation of numerous micro clouds as disposable, using automated tools where no micro cloud is irreplaceable --- "treating \textbf{micro clouds} as cattle, not pets" (i.e. numerous \textbf{micro clouds} built using automated tools designed for failure, where no \textbf{micro cloud} is irreplaceable)
 		\item More dimensions for operation and optimization of infrastructure and services
+		\item Allowing mIaaS, mCaaS, mPaaS, mSaaS models closer to the data data sources
 	\end{itemize}
 	
 \end{frame}
@@ -895,7 +948,7 @@
 				\item All existing applications in the cloud can be upgraded to use the new model
 				\item Big data applications \textbf{AND/OR} smart-sized, “data-centric” solutions to big issues -- Andrew Ng
 				\item Real-time processing for proper decision making
-				\item Eventually -- OS capable of running infrastructure without intervention
+				\item Eventually -- OS capable of running infrastructure with \textbf{less to none} human intervention
 			\end{itemize}
 			
 		\end{column}
@@ -939,8 +992,9 @@
 	\begin{itemize}
 		\item Nodes are organized into micro clouds dynamically -- inspired by the cloud architecture
 		\item Creation of numerous micro clouds designed for failure using automated tools where no micro cloud is irreplaceable -- "treating \textbf{micro clouds} as cattle, not pets."
-		\item Serving local requests first
-		\item Serving requests from optimal location
+		\item Serving local requests first, and from optimal location
+		\item Abstracted infrastructure to the level of software -- infrastructure as software
+		\item Moving computation to the node where that data resides, instead of vice versa
 	\end{itemize} 
 	
 	\bigskip
@@ -967,6 +1021,7 @@
 			\item Scheduling
 			\item Chaos engineering 
 			\item Monitoring
+			\item Replication
 			\item etc.
 		\end{itemize}
 		\item  Not lacking opportunities
